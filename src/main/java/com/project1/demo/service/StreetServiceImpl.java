@@ -19,12 +19,12 @@ public class StreetServiceImpl {
         streetRepository.save(streetEntity);
     }
 
-//    @Transactional
-//    public void remove(StreetEntity streetEntity){
-//       final StreetEntity streetEntity1=
-//               streetRepository.findById(streetEntity.getId()).get();
-//       streetRepository.delete(streetEntity1);
-//    }
+    @Transactional
+    public void remove(StreetEntity streetEntity){
+      final StreetEntity streetEntity1=
+               streetRepository.findById(streetEntity.getId()).get();
+       streetRepository.delete(streetEntity1);
+    }
 
     public StreetEntity findById(int id) {
         Optional<StreetEntity> street = streetRepository.findById(id);
