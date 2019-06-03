@@ -30,7 +30,7 @@ public class CountryEntity extends CommonInfoEntity {
     @Column (name="LANGUAGE", nullable=false)
     private Language language;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "country")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "country11")
     private List<CityEntity> cities = new ArrayList<CityEntity>();
 
     public Integer getId() {

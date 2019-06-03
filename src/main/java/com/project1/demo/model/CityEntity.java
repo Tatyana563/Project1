@@ -32,9 +32,9 @@ public class CityEntity extends CommonInfoEntity {
 
 @ManyToOne(fetch= FetchType.LAZY, cascade = CascadeType.ALL)
 @JoinColumn(name="COUNTRY_ID")
-private CountryEntity country;
+private CountryEntity country11;
 
-@OneToMany(mappedBy="town", cascade = CascadeType.ALL)
+@OneToMany(mappedBy="town11", cascade = CascadeType.ALL)
 private List<StreetEntity> streets = new ArrayList<StreetEntity>();
 
     public Integer getId() {

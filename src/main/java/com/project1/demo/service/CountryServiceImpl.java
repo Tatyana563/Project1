@@ -10,11 +10,12 @@ import java.util.Collection;
 import java.util.Optional;
 
 public class CountryServiceImpl implements CountryService {
-private CountryDao countryDao;
+    private CountryDao countryDao;
+
     @Override
     @Transactional
     public void createOrUpdate(CountryEntity entity) {
-countryDao.save(entity);
+        countryDao.save(entity);
     }
 
     @Override
@@ -27,14 +28,22 @@ countryDao.save(entity);
     @Override
     @Transactional
     public Optional<CountryEntity> findById(int id) {
-        Optional<CountryEntity> country= countryDao.findById(id);
-        return Optional.ofNullable(country);
+        Optional<CountryEntity> country = countryDao.findById(id);
+        if (country.isPresent()) {
+            return Optional.ofNullable(country.get());
+        }
+        return country;
+
     }
+
 
     @Override
     @Transactional
     public void remove(int id) {
-        CountryEntity countryEntity=findById(id);
-countryDao.delete(countryEntity);
+        Optional<CountryEntity> countryEntity = findById(id);
+        if (countryEntity.isPresent()) {
+            countryDao.delete(countryEntity.get());// get entity from optional
+        }
+
     }
 }

@@ -44,7 +44,7 @@ public class BuildingEntity {
 
     @ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="street_id")
-    private StreetEntity streetEntity;
+    private StreetEntity street11;
 
     public Integer getId() {
         return id;

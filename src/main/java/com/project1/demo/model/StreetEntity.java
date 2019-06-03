@@ -23,9 +23,9 @@ public class StreetEntity {
 
     @ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="TOWN_ID")
-    private CityEntity city;
+    private CityEntity town11;
 
-@OneToMany(mappedBy = "street", cascade =CascadeType.ALL)
+@OneToMany(mappedBy = "street11", cascade =CascadeType.ALL)
 private List<BuildingEntity> buildings = new ArrayList<BuildingEntity>();
 
     public Integer getId() {
