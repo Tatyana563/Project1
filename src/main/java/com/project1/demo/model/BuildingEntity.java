@@ -33,18 +33,18 @@ public class BuildingEntity {
     @Column(name="HEIGHT")
     private double height;
 
-    @Column(name="TOWN_ID")
-    private int town_id;
+    @Column(name="TOWN_ID", insertable = false, updatable = false)
+    private int townId;
 
-    @Column(name="STREET_ID")
-    private int street_id;
+    @Column(name="STREET_ID", insertable = false, updatable = false)
+    private int streetId;
 
     @Transient
     private Date cteationDate;
 
     @ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="street_id")
-    private StreetEntity street11;
+    private StreetEntity streetEntity;
 
     public Integer getId() {
         return id;
@@ -102,20 +102,20 @@ public class BuildingEntity {
         this.height = height;
     }
 
-    public int getTown_id() {
-        return town_id;
+    public int getTownId() {
+        return townId;
     }
 
-    public void setTown_id(int town_id) {
-        this.town_id = town_id;
+    public void setTownId(int townId) {
+        this.townId = townId;
     }
 
-    public int getStreet_id() {
-        return street_id;
+    public int getStreetId() {
+        return streetId;
     }
 
-    public void setStreet_id(int street_id) {
-        this.street_id = street_id;
+    public void setStreetId(int streetId) {
+        this.streetId = streetId;
     }
 
     public Date getCteationDate() {
@@ -136,8 +136,8 @@ public class BuildingEntity {
                 ", floor=" + floor +
                 ", material=" + material +
                 ", height=" + height +
-                ", town_id=" + town_id +
-                ", street_id=" + street_id +
+                ", townId=" + townId +
+                ", streetId=" + streetId +
                 ", cteationDate=" + cteationDate +
                 '}';
     }

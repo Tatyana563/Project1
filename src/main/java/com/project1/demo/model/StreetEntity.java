@@ -12,7 +12,7 @@ public class StreetEntity {
    @SequenceGenerator(name="serialstreet",sequenceName = "serialstreet", allocationSize = 1)
    private Integer id;
 
-   @Column(name="TOWN_ID", nullable=false)
+   @Column(name="TOWN_ID", nullable=false, insertable = false, updatable = false)
     private int townId;
 
     @Column(name="STREET_NAME", nullable=false)
@@ -23,9 +23,9 @@ public class StreetEntity {
 
     @ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="TOWN_ID")
-    private CityEntity town11;
+    private CityEntity town;
 
-@OneToMany(mappedBy = "street11", cascade =CascadeType.ALL)
+@OneToMany(mappedBy = "streetEntity", cascade =CascadeType.ALL)
 private List<BuildingEntity> buildings = new ArrayList<BuildingEntity>();
 
     public Integer getId() {

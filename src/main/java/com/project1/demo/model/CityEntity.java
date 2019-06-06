@@ -24,7 +24,36 @@ public class CityEntity extends CommonInfoEntity {
     @Column(name = "LOCATION")
     private cityLocation location;
 
-    @Column(name = "COUNTRY_ID")
+    @Override
+    public double getArea() {
+        return area;
+    }
+
+    @Override
+    public void setArea(double area) {
+        this.area = area;
+    }
+
+    public CountryEntity getCountry() {
+        return country;
+    }
+
+    public void setCountry(CountryEntity country) {
+        this.country = country;
+    }
+
+    public List<StreetEntity> getStreets() {
+        return streets;
+    }
+
+    public void setStreets(List<StreetEntity> streets) {
+        this.streets = streets;
+    }
+
+    @Column(name = "AREA")
+    private double area;
+
+    @Column(name = "COUNTRY_ID", insertable = false, updatable = false)
     private int countryId;
 
     @Transient
@@ -32,9 +61,9 @@ public class CityEntity extends CommonInfoEntity {
 
 @ManyToOne(fetch= FetchType.LAZY, cascade = CascadeType.ALL)
 @JoinColumn(name="COUNTRY_ID")
-private CountryEntity country11;
+private CountryEntity country;
 
-@OneToMany(mappedBy="town11", cascade = CascadeType.ALL)
+@OneToMany(mappedBy="town", cascade = CascadeType.ALL)
 private List<StreetEntity> streets = new ArrayList<StreetEntity>();
 
     public Integer getId() {

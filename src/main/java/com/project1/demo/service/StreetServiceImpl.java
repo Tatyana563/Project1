@@ -25,12 +25,12 @@ public class StreetServiceImpl {
                streetRepository.findById(streetEntity.getId()).get();
        streetRepository.delete(streetEntity1);
     }
-
+    @Transactional
     public StreetEntity findById(int id) {
         Optional<StreetEntity> street = streetRepository.findById(id);
         return street.orElse(new StreetEntity());
     }
-
+    @Transactional
     public Collection<StreetEntity> findAll() {
         return streetRepository.findAll();
     }

@@ -11,28 +11,33 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Collection;
 import java.util.Optional;
 
-public class BuildingServiceImpl implements GenericService<BuildingEntity,Integer> {
+@Service
+public class BuildingServiceImpl implements BuildingService {
     @Autowired
     private BuildingRepository buildingRepository;
 
     @Override
+    @Transactional
     public void createOrUpdate(BuildingEntity entity) {
         buildingRepository.save(entity);
     }
 
     @Override
+    @Transactional
     public Collection<BuildingEntity> findAll() {
         buildingRepository.findAll();
         return null;
     }
 
     @Override
+    @Transactional
     public Optional<BuildingEntity> findById(int id) {
         buildingRepository.findById(id);
         return Optional.empty();
     }
 
     @Override
+    @Transactional
     public void remove(int id) {
         BuildingEntity buildingEntity = findById(id).get();
         buildingRepository.delete(buildingEntity);

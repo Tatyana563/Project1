@@ -1,14 +1,19 @@
 package com.project1.demo.dao;
 
 import com.project1.demo.model.CityEntity;
+import com.project1.demo.model.CountryEntity;
+import com.project1.demo.model.enumeration.FilterKey;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 import org.springframework.util.CollectionUtils;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Objects;
-import java.util.Optional;
+import javax.persistence.Query;
+import java.util.*;
+
+@Repository
+@Qualifier("cityDao")
 
 public class CityDaoImpl implements CityDao {
     @PersistenceContext
@@ -51,4 +56,6 @@ public class CityDaoImpl implements CityDao {
 if(Objects.isNull(entity)) throw new IllegalArgumentException("entity must be set");
 entityManager.remove(entity);
     }
+// find countries with city area<city_area
+
 }
