@@ -74,12 +74,39 @@ entityManager.remove(entity);
                 where.append("and cc.area<=:cityArea");
             }
             Query query = entityManager.createQuery(sql.toString());
-//            if (filter.containsKey(FilterKey.CITY_AREA)) {
-//                query.setParameter("cityArea", filter.get(FilterKey.CITY_AREA));
-//            }
+           if (filter.containsKey(FilterKey.CITY_AREA)) {
+                query.setParameter("cityArea", filter.get(FilterKey.CITY_AREA));
+            }
 
 
             return query.getResultList();
         }
+
+    @Override
+    public Collection<CountryEntity> findAllByFilter2(Map<FilterKey, Object> filter) {
+       final StringBuilder sql=new StringBuilder("select c from CountryEntity c");
+       final StringBuilder where = new StringBuilder("where 1=1");
+       if(filter.containsKey(FilterKey.CITY_AREA)){
+           sql.append("inner join c.cities cc");
+           where.append("and cc.area>=50");
+       }
+       if(filter.containsKey(FilterKey.STREET_NAME)) {
+           sql.append("inner join cc.streets st");
+           where.append("st.name=:streetName");
+       }
+       if(filter.containsKey(FilterKey.BUILDING_MATERIAL)){
+           sql.append("inner join st.buildings bl");
+           where.append("and bl.material=:material");
+       }
+       Query query = entityManager.createQuery(sql.toString());
+       if((filter.containsKey(FilterKey.STREET_NAME))&&(filter.containsKey(FilterKey.BUILDING_MATERIAL))){
+           query.setParameter("streetName", filter.get(FilterKey.STREET_NAME))&((query.setParameter("material", filter.get(FilterKey.BUILDING_MATERIAL)));
+       }
+       return query.getResultList();
+        }
+
     }
+
+
+
 

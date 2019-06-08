@@ -71,6 +71,12 @@ buildingService.remove(18);
 
         System.out.println(countryService.findAllByFilter(filter));
     }
+    @Test
+    public void testFilter2(){
+        Map<FilterKey, Object> filter = new HashMap<>();
+        filter.put(FilterKey.STREET_NAME,"street5");
+        filter.put(FilterKey.BUILDING_MATERIAL, "brick");
+    }
 }
 
 

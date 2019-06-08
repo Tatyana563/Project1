@@ -43,7 +43,7 @@ public class BuildingEntity {
     private Date cteationDate;
 
     @ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name="street_id")
+    @JoinColumn(name="STREET_ID")
     private StreetEntity streetEntity;
 
     public Integer getId() {

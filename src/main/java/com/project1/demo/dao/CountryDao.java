@@ -9,5 +9,6 @@ import java.util.Map;
 public interface CountryDao extends GenericDao<CountryEntity, Integer> {
     Collection<CountryEntity> findAll(int position, int limit);
     Collection<CountryEntity> findAllByFilter(Map<FilterKey, Object> filter);
+    Collection<CountryEntity> findAllByFilter2(Map<FilterKey, Object> filter);
 
 }

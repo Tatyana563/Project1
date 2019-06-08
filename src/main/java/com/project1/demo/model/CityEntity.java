@@ -24,15 +24,6 @@ public class CityEntity extends CommonInfoEntity {
     @Column(name = "LOCATION")
     private cityLocation location;
 
-    @Override
-    public double getArea() {
-        return area;
-    }
-
-    @Override
-    public void setArea(double area) {
-        this.area = area;
-    }
 
     public CountryEntity getCountry() {
         return country;
