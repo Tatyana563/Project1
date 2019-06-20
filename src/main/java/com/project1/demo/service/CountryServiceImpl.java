@@ -77,6 +77,11 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
+    public Collection<CountryEntity> findAllByFilter4(Map<FilterKey, Object> filter) {
+        return countryDao.findAllByFilter4(filter);
+    }
+
+    @Override
     public Double getMinCityAreaByCountry(int countryId) {
         return countryDao.getMinCityAreaByCountry(countryId);
     }

@@ -3,23 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="462b7913-1bfc-40c5-bf65-fe01475fc38b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CityDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CityDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CityDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CountryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CountryDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CountryDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CountryDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/model/BuildingEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/model/BuildingEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/model/CityEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/model/CityEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/model/CommonInfoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/model/CommonInfoEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/model/CountryEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/model/CountryEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/model/StreetEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/model/StreetEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/model/enumeration/FilterKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/model/enumeration/FilterKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/model/enumeration/cityLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/model/enumeration/CityLocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/service/BuildingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/service/BuildingServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/service/CityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/service/CityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/service/CityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/service/CityServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/service/CountryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/service/CountryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/service/CountryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/service/CountryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/service/StreetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/service/StreetServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/project1/demo/DemoApplicationTestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/project1/demo/DemoApplicationTestTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -45,14 +33,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="240" />
+          <entry key="java" value="247" />
           <entry key="properties" value="5" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="240" />
+          <entry key="JAVA" value="247" />
           <entry key="Properties" value="5" />
           <entry key="XML" value="3" />
         </counts>
@@ -60,16 +48,16 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="51" />
-          <entry key="java" value="12067" />
+          <entry key="java" value="13002" />
           <entry key="properties" value="12" />
-          <entry key="txt" value="35" />
+          <entry key="txt" value="122" />
           <entry key="xml" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="12067" />
-          <entry key="PLAIN_TEXT" value="86" />
+          <entry key="JAVA" value="13002" />
+          <entry key="PLAIN_TEXT" value="173" />
           <entry key="Properties" value="12" />
           <entry key="XML" value="27" />
         </counts>
@@ -78,11 +66,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/project1/demo/DemoApplicationTestTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="121" column="45" selection-start-line="121" selection-start-column="45" selection-end-line="121" selection-end-column="45" />
+            <state relative-caret-position="344">
+              <caret line="98" column="2" selection-start-line="98" selection-start-column="2" selection-end-line="98" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3773#3774#0" expanded="true" />
@@ -99,10 +87,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/model/CityEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="35" column="23" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2653#2654#0" expanded="true" />
+                <element signature="e#2685#2686#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CountryDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="19" selection-start-line="19" selection-end-line="19" selection-end-column="61" />
+            <state relative-caret-position="400">
+              <caret line="16" column="61" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -110,20 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/model/enumeration/Currency.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CountryDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="186" column="62" selection-start-line="186" selection-start-column="62" selection-end-line="187" selection-end-column="30" />
+            <state relative-caret-position="-875">
+              <caret line="131" column="53" lean-forward="true" selection-start-line="131" selection-start-column="41" selection-end-line="131" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -134,8 +127,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/service/CountryService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="19" column="65" selection-start-line="19" selection-start-column="65" selection-end-line="19" selection-end-column="65" />
+            <state relative-caret-position="375">
+              <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -146,11 +139,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/service/CountryServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="96" selection-end-column="60" />
+            <state relative-caret-position="94">
+              <caret line="80" selection-start-line="80" selection-end-line="80" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/model/StreetEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="332">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="21" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/model/enumeration/FilterKey.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="7" column="5" selection-start-line="6" selection-start-column="22" selection-end-line="7" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/dao/GenericDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -158,46 +178,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/model/CountryEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-930">
+            <state relative-caret-position="125">
               <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CityDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/service/CityService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/service/CityServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="65" column="1" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
-              <folding>
-                <element signature="e#1060#1061#0" expanded="true" />
-                <element signature="e#1100#1101#0" expanded="true" />
-                <element signature="e#1560#1561#0" expanded="true" />
-                <element signature="e#1613#1614#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -226,6 +210,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -267,7 +254,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/project1/demo/model/StreetEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/project1/demo/model/BuildingEntity.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/project1/demo/DemoApplicationTest2.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/project1/demo/model/enumeration/FilterKey.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/project1/demo/model/enumeration/cityLocation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/project1/demo/model/enumeration/CityLocation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CityDao.java" />
@@ -275,11 +261,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/project1/demo/service/CityServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CityDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/project1/demo/model/CityEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/project1/demo/model/CountryEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CountryDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/project1/demo/model/enumeration/FilterKey.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CountryDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/project1/demo/service/CountryService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/project1/demo/service/CountryServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/project1/demo/model/CountryEntity.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/project1/demo/DemoApplicationTestTest.java" />
       </list>
     </option>
@@ -412,7 +399,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561060140132" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561064380810" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -443,8 +430,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.DemoApplicationTestTest.testJDBC">
-    <configuration name="DemoApplicationTestTest.testFilter3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.DemoApplicationTestTest.testFilter4">
+    <configuration name="DemoApplicationTestTest.testFilter4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project1" />
       <extension name="coverage">
         <pattern>
@@ -454,7 +441,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.project1.demo" />
       <option name="MAIN_CLASS_NAME" value="com.project1.demo.DemoApplicationTestTest" />
-      <option name="METHOD_NAME" value="testFilter3" />
+      <option name="METHOD_NAME" value="testFilter4" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -525,19 +512,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.DemoApplicationTestTest.testFilter3" />
       <item itemvalue="JUnit.DemoApplicationTestTest.testJDBC" />
       <item itemvalue="JUnit.DemoApplicationTestTest.testUpdateTownArea" />
       <item itemvalue="JUnit.DemoApplicationTestTest.testUpdateTownPopulation" />
       <item itemvalue="JUnit.DemoApplicationTestTest.testUpdateCountryCurrency" />
+      <item itemvalue="JUnit.DemoApplicationTestTest.testFilter4" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DemoApplicationTestTest.testFilter4" />
         <item itemvalue="JUnit.DemoApplicationTestTest.testJDBC" />
         <item itemvalue="JUnit.DemoApplicationTestTest.testUpdateCountryCurrency" />
         <item itemvalue="JUnit.DemoApplicationTestTest.testUpdateTownArea" />
         <item itemvalue="JUnit.DemoApplicationTestTest.testUpdateTownPopulation" />
-        <item itemvalue="JUnit.DemoApplicationTestTest.testFilter3" />
       </list>
     </recent_temporary>
   </component>
@@ -587,22 +574,17 @@
       <option name="project" value="LOCAL" />
       <updated>1559999032423</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="commit 20.06:&#10;testJDBC,&#10;testUpdateTownArea&#10;testUpdateTownPopulation&#10;testUpdateCountryCurrency">
+      <created>1561060248733</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1561060248733</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DemoApplicationTestTest_testJDBC - 2019.06.18 at 09h 09m 28s.xml">
-      <configuration name="DemoApplicationTestTest.testJDBC" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DemoApplicationTestTest_testJDBC - 2019.06.18 at 09h 16m 52s.xml">
-      <configuration name="DemoApplicationTestTest.testJDBC" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DemoApplicationTestTest_testUpdateTownArea - 2019.06.18 at 23h 13m 08s.xml">
-      <configuration name="DemoApplicationTestTest.testUpdateTownArea" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DemoApplicationTestTest_testUpdateTownArea - 2019.06.18 at 23h 18m 20s.xml">
-      <configuration name="DemoApplicationTestTest.testUpdateTownArea" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="DemoApplicationTestTest_testJDBC - 2019.06.19 at 23h 10m 24s.xml">
       <configuration name="DemoApplicationTestTest.testJDBC" configurationId="JUnit" />
     </history-entry>
@@ -621,12 +603,24 @@
     <history-entry file="DemoApplicationTestTest_testUpdateTownArea - 2019.06.20 at 00h 04m 48s.xml">
       <configuration name="DemoApplicationTestTest.testUpdateTownArea" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="DemoApplicationTestTest_testUpdateCountryCurrency - 2019.06.20 at 22h 48m 05s.xml">
+      <configuration name="DemoApplicationTestTest.testUpdateCountryCurrency" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DemoApplicationTestTest_testJDBC - 2019.06.20 at 22h 49m 06s.xml">
+      <configuration name="DemoApplicationTestTest.testJDBC" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DemoApplicationTestTest_testFilter4 - 2019.06.20 at 23h 57m 35s.xml">
+      <configuration name="DemoApplicationTestTest.testFilter4" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DemoApplicationTestTest_testFilter4 - 2019.06.20 at 23h 59m 48s.xml">
+      <configuration name="DemoApplicationTestTest.testFilter4" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="23" width="1260" height="941" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.44833332" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27333334" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -663,7 +657,8 @@
     <MESSAGE value="commit_3" />
     <MESSAGE value="commit_4" />
     <MESSAGE value="commit-5(trying filter2)" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit-5(trying filter2)" />
+    <MESSAGE value="commit 20.06:&#10;testJDBC,&#10;testUpdateTownArea&#10;testUpdateTownPopulation&#10;testUpdateCountryCurrency" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit 20.06:&#10;testJDBC,&#10;testUpdateTownArea&#10;testUpdateTownPopulation&#10;testUpdateCountryCurrency" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -727,13 +722,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/dao/GenericDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/repository/BuildingRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -783,13 +771,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/model/StreetEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="43" column="66" selection-start-line="43" selection-start-column="66" selection-end-line="43" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/service/StreetServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -822,32 +803,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1200">
           <caret line="75" column="24" selection-start-line="75" selection-start-column="24" selection-end-line="75" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/model/enumeration/FilterKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/model/CityEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2653#2654#0" expanded="true" />
-            <element signature="e#2685#2686#0" expanded="true" />
+            <element signature="e#2036#2037#0" expanded="true" />
+            <element signature="e#2063#2064#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CityDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1575">
-          <caret line="74" column="5" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -865,30 +824,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CityDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/service/CityService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CountryDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="19" selection-start-line="19" selection-end-line="19" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -905,30 +844,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/service/CountryServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/model/enumeration/Currency.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="96" selection-end-column="60" />
+        <state relative-caret-position="75">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CityDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/service/CountryService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CityDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="19" column="65" selection-start-line="19" selection-start-column="65" selection-end-line="19" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="750">
+          <caret line="74" column="5" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CountryDaoImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CountryDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="186" column="62" selection-start-line="186" selection-start-column="62" selection-end-line="187" selection-end-column="30" />
+        <state relative-caret-position="400">
+          <caret line="16" column="61" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -937,8 +880,71 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/model/CountryEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-930">
+        <state relative-caret-position="125">
           <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/model/CityEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="35" column="23" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2653#2654#0" expanded="true" />
+            <element signature="e#2685#2686#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/dao/GenericDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/model/enumeration/FilterKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="5" selection-start-line="6" selection-start-column="22" selection-end-line="7" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/service/CountryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/service/CountryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/model/StreetEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="21" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/dao/CountryDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-875">
+          <caret line="131" column="53" lean-forward="true" selection-start-line="131" selection-start-column="41" selection-end-line="131" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -947,8 +953,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/project1/demo/DemoApplicationTestTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="121" column="45" selection-start-line="121" selection-start-column="45" selection-end-line="121" selection-end-column="45" />
+        <state relative-caret-position="344">
+          <caret line="98" column="2" selection-start-line="98" selection-start-column="2" selection-end-line="98" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3773#3774#0" expanded="true" />
@@ -960,13 +966,6 @@
             <element signature="e#4112#4113#0" expanded="true" />
             <element signature="e#4140#4141#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/project1/demo/model/enumeration/Currency.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
         </state>
       </provider>
     </entry>

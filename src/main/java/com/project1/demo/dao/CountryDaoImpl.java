@@ -4,6 +4,7 @@ import com.project1.demo.model.CountryEntity;
 import com.project1.demo.model.enumeration.CityLocation;
 import com.project1.demo.model.enumeration.Currency;
 import com.project1.demo.model.enumeration.FilterKey;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -149,6 +150,48 @@ public class CountryDaoImpl implements CountryDao {
         }
         return query.getResultList();
     }
+
+    @Override
+    public Collection<CountryEntity> findAllByFilter4(Map<FilterKey, Object> filter) {
+       final StringBuilder sql = new StringBuilder(" select c from CountryEntity c ");
+       final StringBuilder where =new StringBuilder(" where 1=1 ");
+       if(filter.containsKey(FilterKey.CITY_TYPE)){
+           sql.append(" inner join c.cities cc ");
+           where.append(" and cc.type=:cityType ");
+       }
+       if(filter.containsKey(FilterKey.STREET_DESCRIPTION)) {
+           if (!filter.containsKey(FilterKey.CITY_TYPE)) {
+               System.out.println("No city of that type");
+           }
+       }
+           else{
+               sql.append(" inner join cc.streets st ");
+              where.append(" and st.description=:streetDescription ");
+           }
+           if(filter.containsKey(FilterKey.BUILDING_MATERIAL)) {
+               if (!filter.containsKey(FilterKey.STREET_DESCRIPTION)) {
+                   System.out.println("No street matches the description");
+               }
+           }
+           else{
+           sql.append(" inner join st.buildings bl ");
+           where.append(" and bl.material=:buildingMaterial");
+           }
+
+           Query query = entityManager.createQuery(sql.append(where).toString());
+           if(filter.containsKey(FilterKey.CITY_TYPE)){
+               query.setParameter("cityType", filter.get(FilterKey.CITY_TYPE));
+       }
+       if(filter.containsKey(FilterKey.STREET_DESCRIPTION)){
+       query.setParameter("streetDescription", filter.get(FilterKey.STREET_DESCRIPTION));
+       }
+       if(filter.containsKey(FilterKey.BUILDING_MATERIAL)){
+           query.setParameter("buildingMaterial", filter.get(FilterKey.BUILDING_MATERIAL));
+       }
+       return query.getResultList();
+       }
+
+
 
     @Override
     public Double getMinCityAreaByCountry(int countryId) {

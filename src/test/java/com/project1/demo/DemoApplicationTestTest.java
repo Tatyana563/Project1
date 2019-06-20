@@ -4,10 +4,7 @@ import com.project1.demo.model.BuildingEntity;
 import com.project1.demo.model.CityEntity;
 import com.project1.demo.model.CountryEntity;
 import com.project1.demo.model.StreetEntity;
-import com.project1.demo.model.enumeration.Currency;
-import com.project1.demo.model.enumeration.FilterKey;
-import com.project1.demo.model.enumeration.buildingType;
-import com.project1.demo.model.enumeration.CityLocation;
+import com.project1.demo.model.enumeration.*;
 import com.project1.demo.service.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -96,6 +93,15 @@ public class DemoApplicationTestTest {
         filter.put(FilterKey.CITY_LOCATION,CityLocation.south);
         filter.put(FilterKey.BUILDING_HEIGH,201.3);
         System.out.println(countryService.findAllByFilter3(filter));
+    }
+
+    @Test
+    public void testFilter4(){
+        Map<FilterKey, Object> filter = new HashMap<>();
+        filter.put(FilterKey.CITY_TYPE, "city");
+        filter.put(FilterKey.STREET_DESCRIPTION,"green and lovely");
+        filter.put(FilterKey.BUILDING_MATERIAL, buildingMaterial.brick);
+        System.out.println(countryService.findAllByFilter4(filter));
     }
  //System.out.println(countryService.getMaxCityPopulationByCountry(2));
    @Test

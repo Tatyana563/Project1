@@ -13,6 +13,7 @@ public interface CountryService extends GenericService<CountryEntity, Integer> {
     Collection<CountryEntity> findAllByFilter(Map<FilterKey, Object> filter);
     Collection<CountryEntity> findAllByFilter2(Map<FilterKey, Object> filter);
     Collection<CountryEntity> findAllByFilter3(Map<FilterKey, Object> filter);
+    Collection<CountryEntity> findAllByFilter4(Map<FilterKey, Object> filter);
     Double getMinCityAreaByCountry(int countryId);
 
     String getCityWithAreaLocation(int countryId, CityLocation cityLocation, Double area);
