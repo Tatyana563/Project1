@@ -5,6 +5,7 @@ import com.project1.demo.model.StreetEntity;
 import com.project1.demo.repository.BuildingRepository;
 import com.project1.demo.repository.StreetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +13,7 @@ import java.util.Collection;
 import java.util.Optional;
 
 @Service
+@Qualifier("Building")
 public class BuildingServiceImpl implements BuildingService {
     @Autowired
     private BuildingRepository buildingRepository;

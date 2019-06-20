@@ -4,11 +4,11 @@ import com.project1.demo.model.BuildingEntity;
 import com.project1.demo.model.CityEntity;
 import com.project1.demo.model.CountryEntity;
 import com.project1.demo.model.StreetEntity;
-import com.project1.demo.model.enumeration.Currency;
-import com.project1.demo.model.enumeration.FilterKey;
-import com.project1.demo.model.enumeration.buildingType;
-import com.project1.demo.model.enumeration.CityLocation;
-import com.project1.demo.service.*;
+import com.project1.demo.model.enumeration.*;
+import com.project1.demo.service.CityService;
+import com.project1.demo.service.CountryService;
+import com.project1.demo.service.GenericService;
+import com.project1.demo.service.StreetServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ import static com.project1.demo.model.enumeration.buildingMaterial.brick;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class DemoApplicationTestTest {
+public class DemoApplicationTest2 {
     @Autowired
     StreetServiceImpl streetService;
     @Autowired
@@ -37,41 +37,73 @@ public class DemoApplicationTestTest {
 
     @Test
     public void testStreet() {
+        //CityEntity city = buildStreet(cityService.findById(1).get());
+        //streetService.createOrUpdate(streetEntity);
+        //cityService.createOrUpdate(city);
+    }
+
+    @Test
+    public void fullScenarioTest() {
+        final CountryEntity country = buildCountry();
+        final CityEntity city = buildCity(country);
+        final StreetEntity street = buildStreet(city);
+        final BuildingEntity building = buildBuilding(street);
+        city.getStreets().add(street);
+        street.getBuildings().add(building);
+        country.getCities().add(city);
+        countryService.createOrUpdate(country);
+    }
+
+    private CountryEntity buildCountry() {
+        final CountryEntity countryEntity = new CountryEntity();
+        countryEntity.setCountryName("Test" + System.currentTimeMillis());
+        countryEntity.setCurrency(Currency.EUR);
+        countryEntity.setLanguage(Language.German);
+        return countryEntity;
+
+    }
+
+    private StreetEntity buildStreet(CityEntity city) {
         final StreetEntity streetEntity = new StreetEntity();
-        CityEntity city = cityService.findById(1).get();
         streetEntity.setTown(city);
         streetEntity.setDescription("The main street");
-        streetEntity.setStreetName("LongStreet");
-        city.getStreets().add(streetEntity);
-        //streetService.createOrUpdate(streetEntity);
-        cityService.createOrUpdate(city);
+        streetEntity.setStreetName("LongStreet" + System.currentTimeMillis());
+        return streetEntity;
     }
 
     @Test
     public void testCity() {
+        final CityEntity cityEntity = buildCity(countryService.findById(1).get());
+        cityService.createOrUpdate(cityEntity);
+    }
+
+    private CityEntity buildCity(final CountryEntity country) {
         final CityEntity cityEntity = new CityEntity();
-        final CountryEntity countryEntity = new CountryEntity();
-        countryEntity.setId(1);
         cityEntity.setType("city");
         cityEntity.setLocation(CityLocation.center);
         cityEntity.setName("Drezden");
         cityEntity.setArea(1000D);
-        cityEntity.setCountry(countryEntity);
-        cityService.createOrUpdate(cityEntity);
+        cityEntity.setCountry(country);
+        return cityEntity;
     }
 
     @Test
     public void testBuilding() {
+        final BuildingEntity buildingEntity = buildBuilding(streetService.findById(4));
+        genericService.createOrUpdate(buildingEntity);
+
+    }
+
+    private BuildingEntity buildBuilding(StreetEntity street) {
         final BuildingEntity buildingEntity = new BuildingEntity();
-        final StreetEntity streetEntity = streetService.findById(4);
         buildingEntity.setFloor(2);
         buildingEntity.setHeight(200);
         buildingEntity.setMaterial(brick);
-        buildingEntity.setName("Novus1");
+        buildingEntity.setName("Novus" + System.currentTimeMillis());
         buildingEntity.setType(buildingType.supermarket);
-        streetEntity.getBuildings().add(buildingEntity);
-        genericService.createOrUpdate(buildingEntity);
-
+        buildingEntity.setStreetEntity(street);
+        street.getBuildings().add(buildingEntity);
+        return buildingEntity;
     }
 
     @Test
@@ -90,38 +122,6 @@ public class DemoApplicationTestTest {
         filter.put(FilterKey.BUILDING_MATERIAL, brick);
         System.out.println(countryService.findAllByFilter2(filter));
     }
-    @Test
-    public void testFilter3(){
-        Map<FilterKey, Object> filter = new HashMap<>();
-        filter.put(FilterKey.CITY_LOCATION,CityLocation.south);
-        filter.put(FilterKey.BUILDING_HEIGH,201.3);
-        System.out.println(countryService.findAllByFilter3(filter));
-    }
- //System.out.println(countryService.getMaxCityPopulationByCountry(2));
-   @Test
-   public void testFunction(){
-       System.out.println(countryService.getMinCityAreaByCountry(1));
-   }
-   @Test
-    public void testFunction2(){
-       System.out.println(countryService.getCityWithAreaLocation(1, CityLocation.north, 20.0));
-   }
-   @Test
-    public void testJDBC(){
-       System.out.println(countryService.getMaxCityPopulationByCountry(1));
-   }
-   @Test
-    public void testUpdateTownArea(){
-        cityService.updateCityArea(1,65.78);
-   }
-   @Test
-    public void testUpdateTownPopulation(){
-        cityService.updateCityPopulation(1,800);
-   }
-   @Test
-    public void testUpdateCountryCurrency(){
-        countryService.updateCountryCurrency(1, Currency.DM);
-   }
 }
 
 

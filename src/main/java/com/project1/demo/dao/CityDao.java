@@ -8,7 +8,8 @@ import java.util.Collection;
 import java.util.Map;
 
 public interface CityDao extends GenericDao<CityEntity, Integer> {
-
+void updateCityArea(int townId, double townArea);
+void updateCityPopulation(int townId, int townPopulation);
 }
 
 

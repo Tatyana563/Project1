@@ -1,5 +1,7 @@
 package com.project1.demo.service;
 
+import com.project1.demo.dao.CityDao;
+import com.project1.demo.model.CityEntity;
 import com.project1.demo.model.StreetEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,10 +15,14 @@ import java.util.Optional;
 public class StreetServiceImpl {
     @Autowired
     private StreetRepository streetRepository;
-
+@Autowired
+private CityDao cityDao;
     @Transactional
     public void createOrUpdate(StreetEntity streetEntity) {
+        CityEntity cityEntity= cityDao.findById(streetEntity.getTownId()).get();
+        streetEntity.setTown(cityEntity);
         streetRepository.save(streetEntity);
+
     }
 
     @Transactional
@@ -28,6 +34,9 @@ public class StreetServiceImpl {
     @Transactional
     public StreetEntity findById(int id) {
         Optional<StreetEntity> street = streetRepository.findById(id);
+        if (street.isPresent()) {
+            street.get().getBuildings().size();
+        }
         return street.orElse(new StreetEntity());
     }
     @Transactional

@@ -2,6 +2,8 @@ package com.project1.demo.service;
 
 import com.project1.demo.dao.CountryDao;
 import com.project1.demo.model.CountryEntity;
+import com.project1.demo.model.enumeration.CityLocation;
+import com.project1.demo.model.enumeration.Currency;
 import com.project1.demo.model.enumeration.FilterKey;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,4 +65,36 @@ public class CountryServiceImpl implements CountryService {
     public Collection<CountryEntity> findAllByFilter(Map<FilterKey, Object> filter) {
         return countryDao.findAllByFilter(filter);
     }
+
+    @Override
+    public Collection<CountryEntity> findAllByFilter2(Map<FilterKey, Object> filter) {
+        return countryDao.findAllByFilter2(filter);
+    }
+
+    @Override
+    public Collection<CountryEntity> findAllByFilter3(Map<FilterKey, Object> filter) {
+        return countryDao.findAllByFilter3(filter);
+    }
+
+    @Override
+    public Double getMinCityAreaByCountry(int countryId) {
+        return countryDao.getMinCityAreaByCountry(countryId);
+    }
+
+    @Override
+    public String getCityWithAreaLocation(int countryId, CityLocation cityLocation, Double area) {
+        return countryDao.getCityWithAreaLocation(countryId, cityLocation, area);
+    }
+
+    @Override
+    public Integer getMaxCityPopulationByCountry(int countryId) {
+        return countryDao.getMaxCityPopulationByCountry(countryId);
+    }
+
+    @Override
+    @Transactional
+    public void updateCountryCurrency(int countryId, Currency currency) {
+       countryDao.updateCountryCurrency(countryId,currency);
+    }
+
 }

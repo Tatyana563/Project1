@@ -5,14 +5,15 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public class CommonInfoEntity {
-    @Column(name="AREA")
-    private double area;
 
-    public double getArea() {
+    @Column(name="AREA")
+    private Double area;
+
+    public Double getArea() {
         return area;
     }
 
-    public void setArea(double area) {
+    public void setArea(Double area) {
         this.area = area;
     }
 }

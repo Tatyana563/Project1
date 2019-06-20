@@ -1,11 +1,25 @@
 package com.project1.demo.model;
 
-import com.project1.demo.model.enumeration.cityLocation;
+import com.project1.demo.model.enumeration.CityLocation;
 
 import javax.persistence.*;
 import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.List;
+@NamedStoredProcedureQueries(
+        @NamedStoredProcedureQuery(
+                name="changePopulation",
+                procedureName = "update_city_population",
+                parameters = {
+                        @StoredProcedureParameter(name="p_city_id",
+                        type=Integer.class,
+                        mode=ParameterMode.IN),
+                        @StoredProcedureParameter(name="p_population",
+                                type = Integer.class,
+                        mode=ParameterMode.IN)
+                }
+        )
+)
 
 @Entity
 @Table(name = "TOWN")
@@ -22,8 +36,18 @@ public class CityEntity extends CommonInfoEntity {
     private String type;
     @Enumerated(EnumType.STRING)
     @Column(name = "LOCATION")
-    private cityLocation location;
+    private CityLocation location;
 
+    @Column(name = "POPULATION", nullable = false)
+    private Integer population;
+
+    public Integer getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(Integer population) {
+        this.population = population;
+    }
 
     public CountryEntity getCountry() {
         return country;
@@ -41,8 +65,6 @@ public class CityEntity extends CommonInfoEntity {
         this.streets = streets;
     }
 
-    @Column(name = "AREA")
-    private double area;
 
     @Column(name = "COUNTRY_ID", insertable = false, updatable = false)
     private int countryId;
@@ -50,11 +72,11 @@ public class CityEntity extends CommonInfoEntity {
     @Transient
     private Data dataCreation;
 
-@ManyToOne(fetch= FetchType.LAZY, cascade = CascadeType.ALL)
+@ManyToOne(fetch= FetchType.EAGER, cascade = CascadeType.ALL)
 @JoinColumn(name="COUNTRY_ID")
 private CountryEntity country;
 
-@OneToMany(mappedBy="town", cascade = CascadeType.ALL)
+@OneToMany(mappedBy="town", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 private List<StreetEntity> streets = new ArrayList<StreetEntity>();
 
     public Integer getId() {
@@ -81,11 +103,11 @@ private List<StreetEntity> streets = new ArrayList<StreetEntity>();
         this.type = type;
     }
 
-    public cityLocation getLocation() {
+    public CityLocation getLocation() {
         return location;
     }
 
-    public void setLocation(cityLocation location) {
+    public void setLocation(CityLocation location) {
         this.location = location;
     }
 

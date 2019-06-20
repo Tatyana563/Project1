@@ -42,9 +42,17 @@ public class BuildingEntity {
     @Transient
     private Date cteationDate;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="STREET_ID")
     private StreetEntity streetEntity;
+
+    public StreetEntity getStreetEntity() {
+        return streetEntity;
+    }
+
+    public void setStreetEntity(StreetEntity streetEntity) {
+        this.streetEntity = streetEntity;
+    }
 
     public Integer getId() {
         return id;

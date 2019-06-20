@@ -1,5 +1,5 @@
 package com.project1.demo.model.enumeration;
 
-public enum cityLocation {
+public enum CityLocation {
     south, north, east, west, center
 }

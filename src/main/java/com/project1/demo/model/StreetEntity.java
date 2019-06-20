@@ -21,11 +21,27 @@ public class StreetEntity {
     @Column(name="description")
     private String description;
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="TOWN_ID")
     private CityEntity town;
 
-@OneToMany(mappedBy = "streetEntity", cascade =CascadeType.ALL)
+    public CityEntity getTown() {
+        return town;
+    }
+
+    public void setTown(CityEntity town) {
+        this.town = town;
+    }
+
+    public List<BuildingEntity> getBuildings() {
+        return buildings;
+    }
+
+    public void setBuildings(List<BuildingEntity> buildings) {
+        this.buildings = buildings;
+    }
+
+    @OneToMany(mappedBy = "streetEntity", cascade =CascadeType.ALL)
 private List<BuildingEntity> buildings = new ArrayList<BuildingEntity>();
 
     public Integer getId() {

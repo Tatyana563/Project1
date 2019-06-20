@@ -6,16 +6,27 @@ import com.project1.demo.model.enumeration.Language;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+@NamedStoredProcedureQueries(
+        @NamedStoredProcedureQuery(
+                name="updateCurrency",
+                procedureName = "update_country_currency",
+                parameters = {
+                        @StoredProcedureParameter(name = "p_country_id",type=Integer.class,
+                        mode=ParameterMode.IN),
+                        @StoredProcedureParameter(name="p_currency", type=Currency.class,
+                        mode=ParameterMode.IN)
+                }
 
+        )
+)
 @Entity
 @Table(name="COUNTRY")
 public class CountryEntity extends CommonInfoEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "serialcountry")
     @SequenceGenerator(name="serialcountry", sequenceName = "serialcountry", allocationSize = 1)
     private Integer id;
-    @Column (name="COUNTRY_ID", nullable=false)
-    private int countryId;
 
     @Column (name="COUNTRY_NAME", nullable=false)
     private String countryName;
@@ -25,13 +36,21 @@ public class CountryEntity extends CommonInfoEntity {
     private Currency currency;
 
     @Column (name="POPULATION")
-    private String population;
-    @Enumerated
+    private Integer population;
+    @Enumerated(EnumType.STRING)
     @Column (name="LANGUAGE", nullable=false)
     private Language language;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "country")
     private List<CityEntity> cities = new ArrayList<CityEntity>();
+
+    public List<CityEntity> getCities() {
+        return cities;
+    }
+
+    public void setCities(List<CityEntity> cities) {
+        this.cities = cities;
+    }
 
     public Integer getId() {
         return id;
@@ -39,14 +58,6 @@ public class CountryEntity extends CommonInfoEntity {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public int getCountryId() {
-        return countryId;
-    }
-
-    public void setCountryId(int countryId) {
-        this.countryId = countryId;
     }
 
     public String getCountryName() {
@@ -65,11 +76,11 @@ public class CountryEntity extends CommonInfoEntity {
         this.currency = currency;
     }
 
-    public String getPopulation() {
+    public Integer getPopulation() {
         return population;
     }
 
-    public void setPopulation(String population) {
+    public void setPopulation(Integer population) {
         this.population = population;
     }
 
@@ -85,7 +96,6 @@ public class CountryEntity extends CommonInfoEntity {
     public String toString() {
         return "CountryEntity{" +
                 "id=" + id +
-                ", countryId=" + countryId +
                 ", countryName='" + countryName + '\'' +
                 ", currency=" + currency +
                 ", population='" + population + '\'' +

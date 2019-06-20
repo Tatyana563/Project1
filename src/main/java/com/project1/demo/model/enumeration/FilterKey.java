@@ -4,6 +4,8 @@ public enum FilterKey {
     CITY_AREA,
     STREET_NAME,
     BUILDING_HEIGH,
-    BUILDING_MATERIAL
+    BUILDING_MATERIAL,
+    CITY_LOCATION,
+    CITY_TYPE
 
 }

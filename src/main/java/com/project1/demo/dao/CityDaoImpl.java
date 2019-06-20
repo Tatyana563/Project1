@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.CollectionUtils;
 
 import javax.persistence.EntityManager;
+import javax.persistence.ParameterMode;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.*;
@@ -33,8 +34,8 @@ public class CityDaoImpl implements CityDao {
     @Override
     public Collection<CityEntity> findAll() {
         Collection<CityEntity> cityEntities=
-                entityManager.createNativeQuery("SELECT CITY_NAME AS CITY_NAME,"+
-                        "CITY_TYPE as CITY_TYPE,"+
+                entityManager.createNativeQuery("SELECT TOWN_NAME AS TOWN_NAME,"+
+                        "TOWN_TYPE as TOWN_TYPE,"+
                         "LOCATION AS LOCATION,"+
                         "AREA AS AREA,"+
                         "COUNTRY_ID AS COUNTRY_ID "+
@@ -48,7 +49,7 @@ public class CityDaoImpl implements CityDao {
         final CityEntity cityEntity =
                 entityManager.find(CityEntity.class, id);
         if(Objects.isNull(cityEntity)) throw new NullPointerException("City was not found");
-        return Optional.empty();
+        return Optional.of(cityEntity);
     }
 
     @Override
@@ -56,6 +57,22 @@ public class CityDaoImpl implements CityDao {
 if(Objects.isNull(entity)) throw new IllegalArgumentException("entity must be set");
 entityManager.remove(entity);
     }
-// find countries with city area<city_area
+
+    @Override
+    public void updateCityArea(int townId, double townArea) {
+      entityManager.createStoredProcedureQuery("update_town_area")
+                .registerStoredProcedureParameter("p_town_id", Integer.class, ParameterMode.IN)
+                .registerStoredProcedureParameter("p_area", Double.class, ParameterMode.IN)
+                .setParameter("p_town_id",townId)
+                .setParameter("p_area", townArea).execute();
+    }
+
+    @Override
+    public void updateCityPopulation(int townId, int townPopulation) {
+        entityManager.createNamedStoredProcedureQuery("changePopulation")
+                .setParameter("p_city_id", townId)
+        .setParameter("p_population", townPopulation).execute();
+    }
+
 
 }
