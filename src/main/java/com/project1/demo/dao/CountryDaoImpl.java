@@ -18,6 +18,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.math.BigDecimal;
 import java.sql.CallableStatement;
+import java.sql.ResultSet;
 import java.util.*;
 
 @Repository
@@ -213,16 +214,21 @@ public class CountryDaoImpl implements CountryDao {
                 .setParameter("p_area", new BigDecimal(area) )
                 .getSingleResult();
     }
-//JDBC
+//JDBC - function, not procedure
     @Transactional
     @Override
     public Integer getMaxCityPopulationByCountry(int countryId) {
         Session session = entityManager.unwrap(Session.class);
-        session.doWork(connection -> {try(CallableStatement function=connection.prepareCall("{call get_max_city_population(?)}")){
+        final Integer[] maxValue = new Integer[1];
+        session.doWork(connection ->
+        {try(CallableStatement function=connection.prepareCall("{call get_max_city_population(?)}")){
             function.setInt(1, countryId);
-            function.execute();
+           ResultSet rs = function.getResultSet();
+            if(rs!= null &&rs.next()){
+                maxValue[0]= rs.getInt(1);
+            };
         }});
-        return null;
+        return maxValue[0];
     }
 
     @Override
