@@ -1,9 +1,11 @@
 package com.project1.demo.dao;
 
+import com.project1.demo.model.CityEntity;
 import com.project1.demo.model.CountryEntity;
 import com.project1.demo.model.enumeration.CityLocation;
 import com.project1.demo.model.enumeration.Currency;
 import com.project1.demo.model.enumeration.FilterKey;
+import com.project1.demo.model.enumeration.Language;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
@@ -17,6 +19,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.math.BigDecimal;
+import java.sql.Array;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.util.*;
@@ -125,14 +128,15 @@ public class CountryDaoImpl implements CountryDao {
         }
         return query.getResultList();
     }
+
     public Collection<CountryEntity> findAllByFilter3(Map<FilterKey, Object> filter) {
         final StringBuilder sql = new StringBuilder(" select c from CountryEntity c ");
         final StringBuilder where = new StringBuilder(" where 1=1 ");
         if (filter.containsKey(FilterKey.CITY_LOCATION)) {
             sql.append(" inner join c.cities cc ");
-         where.append(" and cc.location=:cityLocation ");
+            where.append(" and cc.location=:cityLocation ");
         }
-        if(filter.containsKey(FilterKey.BUILDING_HEIGH)) {
+        if (filter.containsKey(FilterKey.BUILDING_HEIGH)) {
             if (!filter.containsKey(FilterKey.CITY_LOCATION)) {
                 System.out.println("No city from this location");
             } else {
@@ -143,61 +147,66 @@ public class CountryDaoImpl implements CountryDao {
         }
 
         Query query = entityManager.createQuery(sql.append(where).toString());
-        if(filter.containsKey(FilterKey.CITY_LOCATION)){
+        if (filter.containsKey(FilterKey.CITY_LOCATION)) {
             query.setParameter("cityLocation", filter.get(FilterKey.CITY_LOCATION));
         }
-        if(filter.containsKey(FilterKey.BUILDING_HEIGH)){
-          query.setParameter("buildingHeight",filter.get(FilterKey.BUILDING_HEIGH));
+        if (filter.containsKey(FilterKey.BUILDING_HEIGH)) {
+            query.setParameter("buildingHeight", filter.get(FilterKey.BUILDING_HEIGH));
         }
         return query.getResultList();
     }
 
     @Override
     public Collection<CountryEntity> findAllByFilter4(Map<FilterKey, Object> filter) {
-       final StringBuilder sql = new StringBuilder(" select c from CountryEntity c ");
-       final StringBuilder where =new StringBuilder(" where 1=1 ");
-       if(filter.containsKey(FilterKey.CITY_TYPE)){
-           sql.append(" inner join c.cities cc ");
-           where.append(" and cc.type=:cityType ");
-       }
-       if(filter.containsKey(FilterKey.STREET_DESCRIPTION)) {
-           if (!filter.containsKey(FilterKey.CITY_TYPE)) {
-               System.out.println("No city of that type");
-           }
-       }
-           else{
-               sql.append(" inner join cc.streets st ");
-              where.append(" and st.description=:streetDescription ");
-           }
-           if(filter.containsKey(FilterKey.BUILDING_MATERIAL)) {
-               if (!filter.containsKey(FilterKey.STREET_DESCRIPTION)) {
-                   System.out.println("No street matches the description");
-               }
-           }
-           else{
-           sql.append(" inner join st.buildings bl ");
-           where.append(" and bl.material=:buildingMaterial");
-           }
+        final StringBuilder sql = new StringBuilder(" select c from CountryEntity c ");
+        final StringBuilder where = new StringBuilder(" where 1=1 ");
+        if (filter.containsKey(FilterKey.CITY_TYPE)) {
+            sql.append(" inner join c.cities cc ");
+            where.append(" and cc.type=:cityType ");
+        }
+        if (filter.containsKey(FilterKey.CURRENCY)) {
+            where.append(" and c.currency=:currency ");
+        }
+        if (filter.containsKey(FilterKey.STREET_DESCRIPTION)) {
+            if (!filter.containsKey(FilterKey.CITY_TYPE)) {
+                sql.append(" inner join c.cities cc ");
+            }
+            sql.append(" inner join cc.streets st ");
+            where.append(" and st.description=:streetDescription ");
+        }
+        if (filter.containsKey(FilterKey.BUILDING_MATERIAL)) {
+            if (!filter.containsKey(FilterKey.STREET_DESCRIPTION)) {
+                if (!filter.containsKey(FilterKey.CITY_TYPE)) {
+                    sql.append(" inner join c.cities cc ");
+                }
+                sql.append(" inner join cc.streets st ");
+                System.out.println("No street matches the description");
+            }
+            sql.append(" inner join st.buildings bl ");
+            where.append(" and bl.material=:buildingMaterial");
+        }
 
-           Query query = entityManager.createQuery(sql.append(where).toString());
-           if(filter.containsKey(FilterKey.CITY_TYPE)){
-               query.setParameter("cityType", filter.get(FilterKey.CITY_TYPE));
-       }
-       if(filter.containsKey(FilterKey.STREET_DESCRIPTION)){
-       query.setParameter("streetDescription", filter.get(FilterKey.STREET_DESCRIPTION));
-       }
-       if(filter.containsKey(FilterKey.BUILDING_MATERIAL)){
-           query.setParameter("buildingMaterial", filter.get(FilterKey.BUILDING_MATERIAL));
-       }
-       return query.getResultList();
-       }
-
+        Query query = entityManager.createQuery(sql.append(where).toString());
+        if (filter.containsKey(FilterKey.CITY_TYPE)) {
+            query.setParameter("cityType", filter.get(FilterKey.CITY_TYPE));
+        }
+        if (filter.containsKey(FilterKey.STREET_DESCRIPTION)) {
+            query.setParameter("streetDescription", filter.get(FilterKey.STREET_DESCRIPTION));
+        }
+        if (filter.containsKey(FilterKey.BUILDING_MATERIAL)) {
+            query.setParameter("buildingMaterial", filter.get(FilterKey.BUILDING_MATERIAL));
+        }
+        if (filter.containsKey(FilterKey.CURRENCY)) {
+            query.setParameter("currency", filter.get(FilterKey.CURRENCY));
+        }
+        return query.getResultList();
+    }
 
 
     @Override
     public Double getMinCityAreaByCountry(int countryId) {
-        return((Number) entityManager.createStoredProcedureQuery("get_min_city_area")
-        .registerStoredProcedureParameter("p_country_id", Integer.class, ParameterMode.IN)
+        return ((Number) entityManager.createStoredProcedureQuery("get_min_city_area")
+                .registerStoredProcedureParameter("p_country_id", Integer.class, ParameterMode.IN)
                 .setParameter("p_country_id", countryId)
                 .getSingleResult()).doubleValue();
     }
@@ -206,36 +215,102 @@ public class CountryDaoImpl implements CountryDao {
     public String getCityWithAreaLocation(int countryId, CityLocation cityLocation, Double area) {
         //"call get_city_with_area_location(?)"
         return (String) entityManager.createStoredProcedureQuery("get_city_with_area_location")
-                .registerStoredProcedureParameter("p_country_id", Integer.class,ParameterMode.IN)
-                .registerStoredProcedureParameter("p_location", String.class,ParameterMode.IN)
-                .registerStoredProcedureParameter("p_area", BigDecimal.class,ParameterMode.IN)
-                .setParameter("p_country_id", countryId )
-                .setParameter("p_location", cityLocation.name() )
-                .setParameter("p_area", new BigDecimal(area) )
+                .registerStoredProcedureParameter("p_country_id", Integer.class, ParameterMode.IN)
+                .registerStoredProcedureParameter("p_location", String.class, ParameterMode.IN)
+                .registerStoredProcedureParameter("p_area", BigDecimal.class, ParameterMode.IN)
+                .setParameter("p_country_id", countryId)
+                .setParameter("p_location", cityLocation.name())
+                .setParameter("p_area", new BigDecimal(area))
                 .getSingleResult();
     }
-//JDBC - function, not procedure
+
+    //JDBC - function, not procedure
     @Transactional
     @Override
     public Integer getMaxCityPopulationByCountry(int countryId) {
         Session session = entityManager.unwrap(Session.class);
         final Integer[] maxValue = new Integer[1];
         session.doWork(connection ->
-        {try(CallableStatement function=connection.prepareCall("{call get_max_city_population(?)}")){
-            function.setInt(1, countryId);
-           ResultSet rs = function.getResultSet();
-            if(rs!= null &&rs.next()){
-                maxValue[0]= rs.getInt(1);
-            };
-        }});
+        {
+            try (CallableStatement function = connection.prepareCall("{call get_max_city_population(?)}")) {
+                function.setInt(1, countryId);
+                ResultSet rs = function.executeQuery();
+                if (rs != null && rs.next()) {
+                    maxValue[0] = rs.getInt(1);
+                }
+            }
+        });
         return maxValue[0];
+    }
+
+    @Override
+    public Collection<CityEntity> getAllCitiesByCountry(int countryId) {
+        Session session = entityManager.unwrap(Session.class);
+        final Collection<CityEntity> cities = new ArrayList<CityEntity>();
+        session.doWork(connection ->
+        {
+            try (CallableStatement function = connection.prepareCall("{call get_all_cities(?)}")) {
+                function.setInt(1, countryId);
+                ResultSet rs = function.executeQuery();
+                if (rs != null) {
+                    while (rs.next()) {
+                        CityEntity cityEntity = new CityEntity();
+                        cityEntity.setId(rs.getInt("id"));
+                        cityEntity.setName(rs.getString("town_name"));
+                        cities.add(cityEntity);
+                    }
+                }
+            }
+        });
+        return cities;
     }
 
     @Override
     public void updateCountryCurrency(int countryId, Currency currency) {
         entityManager.createNamedStoredProcedureQuery("updateCurrency")
                 .setParameter("p_country_id", countryId)
-                .setParameter("p_currency", currency).execute();
+                .setParameter("p_currency", currency.name()).execute();
+    }
+
+    @Override
+    public void updateCountryInfo(int countryId, Double countryArea, Integer countryPopulation, Language countryLanguage, Currency countryCurrency) {
+        entityManager.createNamedStoredProcedureQuery("updateCountry")
+                .setParameter("p_currency", countryCurrency.name())
+                .setParameter("p_country_id", countryId)
+                .setParameter("p_population", countryPopulation)
+                .setParameter("p_area", new BigDecimal(countryArea))
+                .setParameter("p_language", countryLanguage.name()).execute();
+
+    }
+
+    @Override
+    public void updateCountryInfo2(int countryId, Double countryArea, Integer countryPopulation, Language countryLanguage, Currency countryCurrency) {
+        entityManager.createStoredProcedureQuery("update_country_info")
+                .registerStoredProcedureParameter("p_country_id", Integer.class, ParameterMode.IN)
+                .registerStoredProcedureParameter("p_currency", String.class, ParameterMode.IN)
+                .registerStoredProcedureParameter("p_population", BigDecimal.class, ParameterMode.IN)
+                .registerStoredProcedureParameter("p_area", BigDecimal.class, ParameterMode.IN)
+                .registerStoredProcedureParameter("p_language", String.class, ParameterMode.IN)
+                .setParameter("p_country_id", countryId)
+                .setParameter("p_currency", countryCurrency.name())
+                .setParameter("p_population", new BigDecimal(countryPopulation))
+                .setParameter("p_language", countryLanguage.name())
+                .setParameter("p_area", new BigDecimal(countryArea)).getSingleResult();
+    }
+
+    @Override
+    public void updateCountryInfo3(int countryId, Double countryArea, Integer countryPopulation, Language countryLanguage, Currency countryCurrency) {
+        Session session = entityManager.unwrap(Session.class);
+        session.doWork(connection -> {
+            try (CallableStatement function = connection.prepareCall("{call update_country_info(?,?,?,?,?)}")) {
+                function.setInt(1, countryId);
+                function.setInt(2, countryPopulation);
+                function.setBigDecimal(3, new BigDecimal(countryArea));
+                function.setString(4, countryLanguage.name());
+                function.setString(5, countryCurrency.name());
+                function.execute();
+            }
+        });
     }
 }
 

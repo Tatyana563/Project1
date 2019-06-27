@@ -77,6 +77,11 @@ public class DemoApplicationTest2 {
         cityService.createOrUpdate(cityEntity);
     }
 
+    @Test
+    public void testAllCityByCountry() {
+        System.out.println(countryService.getAllCitiesByCountry(1));
+    }
+
     private CityEntity buildCity(final CountryEntity country) {
         final CityEntity cityEntity = new CityEntity();
         cityEntity.setType("city");

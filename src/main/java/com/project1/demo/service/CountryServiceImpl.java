@@ -1,10 +1,12 @@
 package com.project1.demo.service;
 
 import com.project1.demo.dao.CountryDao;
+import com.project1.demo.model.CityEntity;
 import com.project1.demo.model.CountryEntity;
 import com.project1.demo.model.enumeration.CityLocation;
 import com.project1.demo.model.enumeration.Currency;
 import com.project1.demo.model.enumeration.FilterKey;
+import com.project1.demo.model.enumeration.Language;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -92,6 +94,12 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
+    @Transactional
+    public Collection<CityEntity> getAllCitiesByCountry(int countryId) {
+        return countryDao.getAllCitiesByCountry(countryId);
+    }
+
+    @Override
     public Integer getMaxCityPopulationByCountry(int countryId) {
         return countryDao.getMaxCityPopulationByCountry(countryId);
     }
@@ -99,7 +107,26 @@ public class CountryServiceImpl implements CountryService {
     @Override
     @Transactional
     public void updateCountryCurrency(int countryId, Currency currency) {
-       countryDao.updateCountryCurrency(countryId,currency);
+        countryDao.updateCountryCurrency(countryId, currency);
     }
+
+    @Override
+    @Transactional
+    public void updateCountryInfo(int countryId, Double countryArea, Integer countryPopulation, Language countryLanguage, Currency countryCurrency) {
+        countryDao.updateCountryInfo(countryId, countryArea, countryPopulation, countryLanguage, countryCurrency);
+    }
+
+    @Override
+    @Transactional
+    public void updateCountryInfo2(int countryId, Double countryArea, Integer countryPopulation, Language countryLanguage, Currency countryCurrency) {
+        countryDao.updateCountryInfo2(countryId, countryArea, countryPopulation, countryLanguage, countryCurrency);
+    }
+
+    @Override
+    @Transactional
+    public void updateCountryInfo3(int countryId, Double countryArea, Integer countryPopulation, Language countryLanguage, Currency countryCurrency) {
+        countryDao.updateCountryInfo3(countryId, countryArea, countryPopulation, countryLanguage, countryCurrency);
+    }
+
 
 }

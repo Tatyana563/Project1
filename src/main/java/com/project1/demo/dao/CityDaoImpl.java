@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.ParameterMode;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.math.BigDecimal;
 import java.util.*;
 
 @Repository
@@ -60,18 +61,18 @@ entityManager.remove(entity);
 
     @Override
     public void updateCityArea(int townId, double townArea) {
-      entityManager.createStoredProcedureQuery("update_town_area")
+        entityManager.createStoredProcedureQuery("update_town_area")
                 .registerStoredProcedureParameter("p_town_id", Integer.class, ParameterMode.IN)
-                .registerStoredProcedureParameter("p_area", Double.class, ParameterMode.IN)
+                .registerStoredProcedureParameter("p_area", BigDecimal.class, ParameterMode.IN)
                 .setParameter("p_town_id",townId)
-                .setParameter("p_area", townArea).execute();
+                .setParameter("p_area", new BigDecimal(townArea)).execute();
     }
 
     @Override
     public void updateCityPopulation(int townId, int townPopulation) {
         entityManager.createNamedStoredProcedureQuery("changePopulation")
                 .setParameter("p_city_id", townId)
-        .setParameter("p_population", townPopulation).execute();
+                .setParameter("p_population", townPopulation).execute();
     }
 
 

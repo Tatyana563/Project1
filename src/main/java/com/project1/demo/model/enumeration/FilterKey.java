@@ -7,6 +7,7 @@ public enum FilterKey {
     BUILDING_MATERIAL,
     CITY_LOCATION,
     CITY_TYPE,
-    STREET_DESCRIPTION
+    STREET_DESCRIPTION,
+    CURRENCY
 
 }

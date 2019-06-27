@@ -103,6 +103,13 @@ public class DemoApplicationTestTest {
         filter.put(FilterKey.BUILDING_MATERIAL, buildingMaterial.brick);
         System.out.println(countryService.findAllByFilter4(filter));
     }
+
+    @Test
+    public void testFilter4_1(){
+        Map<FilterKey, Object> filter = new HashMap<>();
+        filter.put(FilterKey.CURRENCY, Currency.EUR);
+        System.out.println(countryService.findAllByFilter4(filter));
+    }
  //System.out.println(countryService.getMaxCityPopulationByCountry(2));
    @Test
    public void testFunction(){
@@ -128,6 +135,17 @@ public class DemoApplicationTestTest {
     public void testUpdateCountryCurrency(){
         countryService.updateCountryCurrency(1, Currency.DM);
    }
+   @Test
+    public void testUpdateCountryInfo(){
+        countryService.updateCountryInfo(6,206.98,2687,Language.German,Currency.EUR);
+   }
+   @Test
+    public void testUpdateCountryInfo2(){
+        countryService.updateCountryInfo2(5,203.5,266,Language.Italian,Currency.USD);
+   }
+
+   @Test
+    public void testUpdateCountryInfo3(){
+        countryService.updateCountryInfo3(5,203.5,266,Language.Italian,Currency.USD);
+   }
 }
-
-

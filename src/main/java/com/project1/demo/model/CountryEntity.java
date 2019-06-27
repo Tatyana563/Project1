@@ -4,6 +4,7 @@ import com.project1.demo.model.enumeration.Currency;
 import com.project1.demo.model.enumeration.Language;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 @NamedStoredProcedureQueries(
@@ -13,12 +14,26 @@ import java.util.List;
                 parameters = {
                         @StoredProcedureParameter(name = "p_country_id",type=Integer.class,
                         mode=ParameterMode.IN),
-                        @StoredProcedureParameter(name="p_currency", type=Currency.class,
+                        @StoredProcedureParameter(name="p_currency", type=String.class,
                         mode=ParameterMode.IN)
                 }
 
         )
 )
+
+        @NamedStoredProcedureQuery(
+                name="updateCountry",
+                procedureName ="update_country_info",
+                parameters = {
+                        @StoredProcedureParameter(name="p_country_id", type=Integer.class, mode=ParameterMode.IN),
+                        @StoredProcedureParameter(name="p_population", type=Integer.class, mode=ParameterMode.IN),
+                        @StoredProcedureParameter(name="p_area", type= BigDecimal.class, mode=ParameterMode.IN),
+                        @StoredProcedureParameter(name="p_language", type=String.class, mode=ParameterMode.IN),
+                        @StoredProcedureParameter(name="p_currency", type=String.class, mode=ParameterMode.IN)
+                }
+        )
+
+
 @Entity
 @Table(name="COUNTRY")
 public class CountryEntity extends CommonInfoEntity {
