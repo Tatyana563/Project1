@@ -6,11 +6,14 @@ import com.project1.demo.model.enumeration.CityLocation;
 import com.project1.demo.model.enumeration.Currency;
 import com.project1.demo.model.enumeration.FilterKey;
 import com.project1.demo.model.enumeration.Language;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
 import java.util.Map;
 
-public interface CountryDao extends GenericDao<CountryEntity, Integer> {
+
+public interface CountryDao extends GenericDao<CountryEntity, Integer>, JpaSpecificationExecutor<CountryEntity> {
     Collection<CountryEntity> findAll(int position, int limit);
     Collection<CountryEntity> findAllByFilter(Map<FilterKey, Object> filter);
     Collection<CountryEntity> findAllByFilter2(Map<FilterKey, Object> filter);

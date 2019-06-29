@@ -6,6 +6,7 @@ import com.project1.demo.model.enumeration.CityLocation;
 import com.project1.demo.model.enumeration.Currency;
 import com.project1.demo.model.enumeration.FilterKey;
 import com.project1.demo.model.enumeration.Language;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
@@ -28,5 +29,8 @@ public interface CountryService extends GenericService<CountryEntity, Integer> {
     void updateCountryInfo(int countryId, Double countryArea, Integer countryPopulation, Language language, Currency countryCurrency);
     void updateCountryInfo2(int countryId, Double countryArea, Integer countryPopulation, Language countryLanguage, Currency countryCurrency);
     void updateCountryInfo3(int countryId, Double countryArea, Integer countryPopulation, Language countryLanguage, Currency countryCurrency);
+    Collection<CountryEntity> findAll(Specification specification);
+
+
 }
 

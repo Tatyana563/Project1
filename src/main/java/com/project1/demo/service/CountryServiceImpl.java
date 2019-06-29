@@ -7,7 +7,9 @@ import com.project1.demo.model.enumeration.CityLocation;
 import com.project1.demo.model.enumeration.Currency;
 import com.project1.demo.model.enumeration.FilterKey;
 import com.project1.demo.model.enumeration.Language;
+import com.project1.demo.repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +21,8 @@ import java.util.Optional;
 public class CountryServiceImpl implements CountryService {
     @Autowired
     private CountryDao countryDao;
+    @Autowired
+private CountryRepository countryRepository;
 
     @Override
     @Transactional
@@ -127,6 +131,13 @@ public class CountryServiceImpl implements CountryService {
     public void updateCountryInfo3(int countryId, Double countryArea, Integer countryPopulation, Language countryLanguage, Currency countryCurrency) {
         countryDao.updateCountryInfo3(countryId, countryArea, countryPopulation, countryLanguage, countryCurrency);
     }
+
+    @Override
+    public Collection<CountryEntity> findAll(Specification specification) {
+        return countryRepository.findAll(specification);
+    }
+
+
 
 
 }

@@ -148,4 +148,10 @@ public class DemoApplicationTestTest {
     public void testUpdateCountryInfo3(){
         countryService.updateCountryInfo3(5,203.5,266,Language.Italian,Currency.USD);
    }
+   @Test
+    public  void testJPAfilter(){
+        countryService.findAll(
+        FilterSpecifications.cityAreaFilter(100)
+        );
+   }
 }
