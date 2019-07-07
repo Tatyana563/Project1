@@ -10,8 +10,8 @@ import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.*;
 
-public class FilterSpecifations {
-    private FilterSpecifations() {
+public class FilterSpecifications {
+    private FilterSpecifications() {
 
     }
 
@@ -20,6 +20,7 @@ public class FilterSpecifations {
 
             @Override
             public Predicate toPredicate(Root<CountryEntity> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                criteriaQuery.distinct(true);
                 Join<CountryEntity, CityEntity> towns = root.join("cities");
                 return criteriaBuilder.lessThan(towns.get("area"), townArea);
             }
@@ -31,6 +32,7 @@ public class FilterSpecifations {
         Specification specif = new Specification<CountryEntity>() {
             @Override
             public Predicate toPredicate(Root<CountryEntity> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                criteriaQuery.distinct(true);
                 Join<CountryEntity, CityEntity> towns = root.join("cities");
                 Join<CityEntity, StreetEntity> allStreets = towns.join("streets");
                 return criteriaBuilder.equal(allStreets.get("name"), streetName);
@@ -44,8 +46,9 @@ public class FilterSpecifations {
 
             @Override
             public Predicate toPredicate(Root<CountryEntity> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                criteriaQuery.distinct(true);
                 Join<CountryEntity, CityEntity> towns = root.join("cities");
-                Join<CityEntity, StreetEntity> allStreets = towns.join("cities");
+                Join<CityEntity, StreetEntity> allStreets = towns.join("streets");
                 Join<StreetEntity, BuildingEntity> allBuildings = allStreets.join("buildings");
                 return criteriaBuilder.equal(allBuildings.get("material"), buildingMaterial);
             }
@@ -58,6 +61,7 @@ public class FilterSpecifations {
 
             @Override
             public Predicate toPredicate(Root<CountryEntity> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                criteriaQuery.distinct(true);
                 Join<CountryEntity, CityEntity> towns = root.join("cities");
                 return criteriaBuilder.equal(towns.get("location"), location);
 
@@ -65,24 +69,27 @@ public class FilterSpecifations {
         };
         return specif;
     }
-    public static Specification<CountryEntity> buildingHeightFilter(double height){
+
+    public static Specification<CountryEntity> buildingHeightFilter(double height) {
         Specification specif = new Specification<CountryEntity>() {
             @Override
             public Predicate toPredicate(Root<CountryEntity> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                criteriaQuery.distinct(true);
                 Join<CountryEntity, CityEntity> towns = root.join("cities");
-                Join<CityEntity, StreetEntity> allStreets = towns.join("cities");
+                Join<CityEntity, StreetEntity> allStreets = towns.join("streets");
                 Join<StreetEntity, BuildingEntity> allBuildings = allStreets.join("buildings");
-                return criteriaBuilder.equal(allBuildings.get("height"),height);
+                return criteriaBuilder.equal(allBuildings.get("height"), height);
             }
         };
         return specif;
-        }
     }
+
     public static Specification<CountryEntity> cityTypeFilter(String type) {
         Specification specif = new Specification<CountryEntity>() {
 
             @Override
             public Predicate toPredicate(Root<CountryEntity> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                criteriaQuery.distinct(true);
                 Join<CountryEntity, CityEntity> towns = root.join("cities");
                 return criteriaBuilder.equal(towns.get("type"), type);
 
@@ -90,10 +97,12 @@ public class FilterSpecifations {
         };
         return specif;
     }
+
     public static Specification<CountryEntity> streetDescriptionFilter(final String description) {
         Specification specif = new Specification<CountryEntity>() {
             @Override
             public Predicate toPredicate(Root<CountryEntity> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                criteriaQuery.distinct(true);
                 Join<CountryEntity, CityEntity> towns = root.join("cities");
                 Join<CityEntity, StreetEntity> allStreets = towns.join("streets");
                 return criteriaBuilder.equal(allStreets.get("description"), description);

@@ -5,12 +5,14 @@ import com.project1.demo.model.CityEntity;
 import com.project1.demo.model.CountryEntity;
 import com.project1.demo.model.StreetEntity;
 import com.project1.demo.model.enumeration.*;
+import com.project1.demo.repository.filter.FilterSpecifications;
 import com.project1.demo.service.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.HashMap;
@@ -20,6 +22,7 @@ import static com.project1.demo.model.enumeration.buildingMaterial.brick;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@ActiveProfiles("DBh2")
 public class DemoApplicationTestTest {
     @Autowired
     StreetServiceImpl streetService;
@@ -137,7 +140,7 @@ public class DemoApplicationTestTest {
    }
    @Test
     public void testUpdateCountryInfo(){
-        countryService.updateCountryInfo(6,206.98,2687,Language.German,Currency.EUR);
+        countryService.updateCountryInfo(5,152.98,787,Language.Italian,Currency.EUR);
    }
    @Test
     public void testUpdateCountryInfo2(){
@@ -150,8 +153,29 @@ public class DemoApplicationTestTest {
    }
    @Test
     public  void testJPAfilter(){
-        countryService.findAll(
-        FilterSpecifications.cityAreaFilter(100)
-        );
+       System.out.println(countryService.findAll(
+        FilterSpecifications.cityAreaFilter(100d)));
+   }
+   @Test
+    public void testJPAfilter2(){
+       System.out.println(countryService.findAll(
+               FilterSpecifications.streetNameFilter("street5")
+               .and(FilterSpecifications.buildingMaterialFilter(buildingMaterial.brick))
+       ));
+   }
+   @Test
+    public void testJPAfilter3(){
+       System.out.println(countryService.findAll(
+               FilterSpecifications.cityLocationFilter(CityLocation.south)
+               .and(FilterSpecifications.buildingHeightFilter(201.3))
+       ));
+   }
+   @Test
+    public void testJPAfilter4(){
+       System.out.println(countryService.findAll(
+               FilterSpecifications.cityTypeFilter("city")
+               .and(FilterSpecifications.streetDescriptionFilter("green and lovely")
+               .and(FilterSpecifications.buildingMaterialFilter(buildingMaterial.brick)))
+       ));
    }
 }
