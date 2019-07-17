@@ -25,7 +25,9 @@ public class DBPostgresConfig {
         dataSource.setDriverClassName("org.postgresql.Driver");
         dataSource.setUsername("postgres");
         dataSource.setPassword("apple25");
-        dataSource.setJdbcUrl("jdbc:postgresql://localhost:5432/postgres");
+        dataSource.setJdbcUrl("jdbc:postgresql://localhost:5432/Architecture");
+        //jdbc:mysql://localhost:3306/javatomcat mysql
+        //jdbc:oracle:thin:@localhost:1521:ORCL oracle
         return new HikariDataSource(dataSource);
     }
     @Bean
@@ -41,6 +43,8 @@ public class DBPostgresConfig {
         jpaProperties.put("hibernate.dialect","org.hibernate.dialect.PostgresSQLDialect");
         jpaProperties.put("hibernate.hbm2ddl.auto","none");
         jpaProperties.put("hibernate.show_sql","true");
+        jpaProperties.put("spring.jpa.hibernate.naming.implicit-strategy", "org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl");
+        jpaProperties.put("spring.jpa.hibernate.naming.physical-strategy", "org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy");
         entityManagerFactoryBean.setJpaProperties(jpaProperties);
         return entityManagerFactoryBean;
     }

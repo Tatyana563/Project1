@@ -14,20 +14,20 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@EnableJpaRepositories(basePackages="com.project1.demo.repository")
+@EnableJpaRepositories(basePackages="com.project1.demo")
 @Profile("DBh2")
 public class DBH2Config {
     @Bean
     public DataSource dataSource(){
-        HikariConfig dataSource = new HikariConfig();
-        dataSource.setDriverClassName("org.h2.Driver");
-        dataSource.setUsername("user");
-        dataSource.setPassword("");
-        dataSource.setJdbcUrl( "jdbc:h2:mem:demo;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS UTL_MATCH\\;CREATE SCHEMA IF NOT EXISTS demo\\;SET SCHEMA demo;MVCC=true");
-        return new HikariDataSource(dataSource);
+        HikariConfig config = new HikariConfig();
+        config.setDriverClassName("org.h2.Driver");
+        config.setUsername("user");
+        config.setPassword("");
+        config.setJdbcUrl( "jdbc:h2:mem:demo;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS UTL_MATCH\\;CREATE SCHEMA IF NOT EXISTS demo\\;SET SCHEMA demo;MVCC=true");
+        return new HikariDataSource(config);
     }
     @Bean
-    LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(DataSource dataSource){
+    LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource){
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource);
         HibernateJpaVendorAdapter vendorAdapter= new HibernateJpaVendorAdapter();
