@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="462b7913-1bfc-40c5-bf65-fe01475fc38b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/DemoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/config/DBH2Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/config/DBH2Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/config/DBPostgresConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/config/DBPostgresConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project1/demo/repository/BuildingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project1/demo/repository/BuildingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,7 +17,7 @@
     <session id="308603834">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="42" />
+          <entry key="project.closed" value="43" />
           <entry key="project.open.time.1" value="29" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.2" value="2" />
@@ -55,14 +49,14 @@
           <entry key="dummy" value="51" />
           <entry key="java" value="18754" />
           <entry key="properties" value="31" />
-          <entry key="txt" value="243" />
+          <entry key="txt" value="247" />
           <entry key="xml" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="18754" />
-          <entry key="PLAIN_TEXT" value="294" />
+          <entry key="PLAIN_TEXT" value="298" />
           <entry key="Properties" value="31" />
           <entry key="XML" value="29" />
         </counts>
@@ -445,7 +439,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563393765873" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563394038309" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../demo-country-master" />
@@ -676,7 +670,14 @@
       <option name="project" value="LOCAL" />
       <updated>1562509478312</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="commit_17,7">
+      <created>1563394062280</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1563394062280</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -713,7 +714,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26941746" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -758,7 +758,8 @@
     <MESSAGE value="commit - problem with update country info" />
     <MESSAGE value="commit - problem with FilterSpecifications - can not find" />
     <MESSAGE value="commit_7,7" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit_7,7" />
+    <MESSAGE value="commit_17,7" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit_17,7" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
