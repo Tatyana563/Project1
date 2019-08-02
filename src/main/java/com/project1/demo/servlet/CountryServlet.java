@@ -1,5 +1,12 @@
 package com.project1.demo.servlet;
 
+import com.project1.demo.service.CountryService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -9,63 +16,37 @@ import java.io.PrintWriter;
 
 public class CountryServlet extends HttpServlet {
 
+    @Autowired
+    private CountryService countryService;
+    private WebApplicationContext context;
+
+    @Override
+    public void init(final ServletConfig config ) throws ServletException {
+        super.init(config);
+        context=
+                WebApplicationContextUtils.getRequiredWebApplicationContext(config.getServletContext());
+        final AutowireCapableBeanFactory beanFactory = context.getAutowireCapableBeanFactory();
+        beanFactory.autowireBean(this);
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException {
+        response.setContentType("text/html");
         PrintWriter pw = response.getWriter();
-        pw.println("Hello from my country!");
-//        <!doctype html>
-//<html>
-//    <head>
-//<title>List of countries</title>
-//<meta charset ="utf-8">
-//    </head>
-//
-//    <body>
-//
-//        <h3>Full list of countries</h3>
-//        <p align="justify"><i> Detailed information for the countries listed below can be found in the table below.</i></p>
-//
-//
-//  <ol>
-//<li>Italy</li>
-//<li>Spain</li>
-//<li>France</li>
-//<li>Germany</li>
-//</ol>
-// <table border="1" weidth="800" height="400" align="center">
-//<caption><b><em>European countries</b></em></caption>
-//<tr>
-//<th>country_name</th>
-//<th>language</th>
-//<th>currency</th>
-//<th>population</th>
-//<th>id</th>
-//<th>area</th>
-//</tr>
-//
-//<tr>
-//<td>Check Republic</td>
-//<td>English</td>
-//<td>EUR</td>
-//<td>265.90</td>
-//<td>2</td>
-//<td>204.6</td>
-//</tr>
-//
-//<tr>
-//<td>Germany</td>
-//<td>German</td>
-//<td>DM</td>
-//<td>82.79</td>
-//<td>1</td>
-//<td>130.5</td>
-//</tr>
-//</table>
-//    </body>
-//</html>
 
+        try {
 
+            pw.println("<h2>Some examples of countries</h2>");
+            pw.println("<ol>");
+            pw.println("<h2>Some examples of cities</h2>");
+            pw.println("<li>Germany</li>");
+            pw.println("<li>Italy</li>");
+            pw.println("<li>Spain</li>");
+            pw.println("</ol>");
+        }
+        finally {
+            pw.close();
+        }
     }
 }

@@ -40,7 +40,7 @@ public class DBPostgresConfig {
         entityManagerFactoryBean.setJpaVendorAdapter(vendorAdapter);
         entityManagerFactoryBean.setPackagesToScan("com.project1.demo");
         Properties jpaProperties = new Properties();
-        jpaProperties.put("hibernate.dialect","org.hibernate.dialect.PostgresSQLDialect");
+        jpaProperties.put("hibernate.dialect","org.hibernate.dialect.PostgreSQLDialect");
         jpaProperties.put("hibernate.hbm2ddl.auto","none");
         jpaProperties.put("hibernate.show_sql","true");
         jpaProperties.put("spring.jpa.hibernate.naming.implicit-strategy", "org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl");

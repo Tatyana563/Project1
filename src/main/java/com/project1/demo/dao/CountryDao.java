@@ -33,4 +33,5 @@ Integer getMaxCityPopulationByCountry(int countryId);
 
     void updateCountryInfo3(int countryId, Double countryArea, Integer countryPopulation, Language countryLanguage, Currency countryCurrency);
 //    void updateCountryInfo3(int countryId, Double countryArea,Integer countryPopulation, Language countryLanguage, Currency countryCurrency);
+    String getCountryByDetails(Language language, Currency currency);
 }

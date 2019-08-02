@@ -1,5 +1,7 @@
 package com.project1.demo.service;
 
+import com.project1.demo.dto.request.CountryRequest;
+import com.project1.demo.dto.response.CountryResponse;
 import com.project1.demo.model.CityEntity;
 import com.project1.demo.model.CountryEntity;
 import com.project1.demo.model.enumeration.CityLocation;
@@ -30,6 +32,11 @@ public interface CountryService extends GenericService<CountryEntity, Integer> {
     void updateCountryInfo2(int countryId, Double countryArea, Integer countryPopulation, Language countryLanguage, Currency countryCurrency);
     void updateCountryInfo3(int countryId, Double countryArea, Integer countryPopulation, Language countryLanguage, Currency countryCurrency);
     Collection<CountryEntity> findAll(Specification specification);
+    Collection<CountryResponse> findAllForRest();
+    CountryResponse findByCountryDetails(String language, String currency);
+    String getCountryByDetails(Language language, Currency currency);
+
+    CountryRequest deleteByIdRequest(int id);
 
 
 }

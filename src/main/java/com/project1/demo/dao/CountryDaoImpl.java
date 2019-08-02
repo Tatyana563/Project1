@@ -312,6 +312,19 @@ public class CountryDaoImpl implements CountryDao {
             }
         });
     }
+
+    @Override
+    public String getCountryByDetails(Language language, Currency currency) {
+        return (String)
+        entityManager.createStoredProcedureQuery("get_country_by_details")
+                .registerStoredProcedureParameter("p_language", String.class, ParameterMode.IN)
+                .registerStoredProcedureParameter("p_currency",String.class,ParameterMode.IN)
+                .setParameter("p_language", language.name())
+        .setParameter("p_currency",currency.name())
+                .getSingleResult();
+
+
+    }
 }
 
 

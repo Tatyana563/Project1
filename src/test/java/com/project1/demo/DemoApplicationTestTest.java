@@ -22,7 +22,7 @@ import static com.project1.demo.model.enumeration.buildingMaterial.brick;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@ActiveProfiles("DBh2")
+@ActiveProfiles("postgres")
 public class DemoApplicationTestTest {
     @Autowired
     StreetServiceImpl streetService;
@@ -177,5 +177,10 @@ public class DemoApplicationTestTest {
                .and(FilterSpecifications.streetDescriptionFilter("green and lovely")
                .and(FilterSpecifications.buildingMaterialFilter(buildingMaterial.brick)))
        ));
+   }
+   @Test
+    public void testFindCountryByDetails(){
+       System.out.println(countryService.
+               getCountryByDetails(Language.German,Currency.DM));
    }
 }

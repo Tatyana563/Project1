@@ -5,6 +5,7 @@ import com.project1.demo.servlet.CountryServlet;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServlet;
 @Configuration
@@ -24,5 +25,9 @@ public class WebServeletConf {
         servRegBeanCity.addUrlMappings("/city/*");
         servRegBeanCity.setLoadOnStartup(1);
         return servRegBeanCity;
+    }
+    @Bean
+    public RestTemplate getRestTemplate(){
+        return new RestTemplate();
     }
 }

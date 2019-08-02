@@ -1,6 +1,8 @@
 package com.project1.demo.service;
 
 import com.project1.demo.dao.CountryDao;
+import com.project1.demo.dto.request.CountryRequest;
+import com.project1.demo.dto.response.CountryResponse;
 import com.project1.demo.model.CityEntity;
 import com.project1.demo.model.CountryEntity;
 import com.project1.demo.model.enumeration.CityLocation;
@@ -12,10 +14,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CountryServiceImpl implements CountryService {
@@ -137,7 +142,36 @@ private CountryRepository countryRepository;
         return countryRepository.findAll(specification);
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public Collection<CountryResponse> findAllForRest() {
+        Collection<CountryEntity> countries = countryDao.findAll();
+     if(CollectionUtils.isEmpty(countries))
 
+        return Collections.emptyList();
+      return countries.stream().
+              map(item->new CountryResponse(item))
+              .collect(Collectors.toList());
+    }
+
+    @Override
+    public CountryResponse findByCountryDetails(String language, String currency) {
+        return null;
+    }
+
+
+    @Override
+    public String getCountryByDetails(Language language, Currency currency) {
+        return countryDao.getCountryByDetails(language,currency);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public CountryRequest deleteByIdRequest(int id) {
+        CountryEntity countryEntity =findById(id).get();
+        countryDao.delete(countryEntity);
+        return null;
+    }
 
 
 }
