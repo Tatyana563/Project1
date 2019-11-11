@@ -166,7 +166,7 @@ private CountryRepository countryRepository;
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public CountryRequest deleteByIdRequest(int id) {
         CountryEntity countryEntity =findById(id).get();
         countryDao.delete(countryEntity);

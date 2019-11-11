@@ -43,14 +43,19 @@ public class CountryController {
 
     //http://localhost:8080/api/country/10
     @GetMapping("/{deleteId}")
-    public String delete(@PathVariable("deleteId") int deleteId) {
+    public void delete(@PathVariable("deleteId") int deleteId) {
         countryService.remove(deleteId);
-        return "OK";
+    }
+    @GetMapping("/{getId}")
+    public void getCountry (@PathVariable("getId") int Id) {
+       countryService.findById(Id);
     }
 
 
+
+
     @PostMapping
-    public CountryResponse createFromPost(CountryRequest countryRequest) {
+    public CountryResponse createFromPost(@RequestBody CountryRequest countryRequest) {
         CountryEntity countryEntity = countryRequest.convert();
         countryService.createOrUpdate(countryEntity);
         final CountryEntity country = countryService.findById(countryEntity.getId()).get();

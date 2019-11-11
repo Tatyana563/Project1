@@ -27,35 +27,30 @@ public class testCountryController {
 
     @Test
     public void testGetCountry() {
+
+        CountryRequest request = new CountryRequest();
+
+        request.setName("Portuga8");
+        request.setCurrency(Currency.USD.name());
+        request.setLanguage(Language.Spanish.name());
+         request.setArea(53D);
+        request.setPopulation(269);
+        ResponseEntity<CountryResponse> response =
+                restTemplate.postForEntity(URI.create("http://localhost:" + port + "/api/country"), request, CountryResponse.class);
+
+
+        System.out.println("new status is:" + response.getStatusCode());
+        System.out.println("new country response" + response.getBody());
+
         ResponseEntity<CountryResponse> responseEntity =
-                restTemplate.getForEntity(URI.create("http://localhost:" + port + "/api/country/2"), CountryResponse.class);
+                restTemplate.getForEntity(URI.create("http://localhost:" + port + "/api/country/"+request.getId()), CountryResponse.class);
         System.out.println("status code:" + responseEntity.getStatusCode());
         System.out.println("country response:" + responseEntity.getBody());
 
 
+//        restTemplate.delete(URI.create("http://localhost:"+ port + "/api/country/"+response.getBody().getId()));
+//        System.out.println("status is:" + response.getStatusCode());
 
-        CountryRequest request = new CountryRequest();
-
-        request.setName("Portugal");
-        request.setCurrency(Currency.USD.name());
-        request.setLanguage(Language.Spanish.name());
-        // request.getArea(53D);???
-        request.setPopulation(269);
-        ResponseEntity response =
-                restTemplate.postForEntity(URI.create("http:localhost:" + port + "/api/country"), request, CountryResponse.class);
-        System.out.println("new status is:" + response.getStatusCode());
-        System.out.println("new country response" + response.getBody());
-
-        restTemplate.delete(URI.create("http://localhost:"+ port + "/api/country/"+response.getBody().getId()),CountryResponse.class);
-        System.out.println("status is:" + response.getStatusCode());
-
-
-
-
-
-
-
-        restTemplate.delete(URI.create("http://localhost:"+port+"/api/country/"),CountryResponse.class);
     }
 }
 
